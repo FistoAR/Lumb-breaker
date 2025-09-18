@@ -1,0 +1,182 @@
+#design1 .conference-top {
+  width: 100%;
+  margin: 0 auto !important;
+  display: flex;
+  justify-content: center;
+}
+
+#design1 .conference-wrapper {
+  display: inline-block;
+  text-align: center;
+}
+
+#design1 .res-title,
+.subwords div {
+  font-size: clamp(20px, 5vw, 95px);
+}
+
+#design1 .title {
+  letter-spacing: 4px;
+  margin-bottom: 0;
+  line-height: 0.8;
+  padding-bottom: 0;
+}
+
+#design1 .subwords {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-weight: 300 !important;
+}
+
+#design1 .subwords span {
+  font-size: 35%;
+
+  display: block;
+}
+
+/* === GREEN (#BAFF00) === */
+#design1 .txt-g {
+  color: #baff00;
+}
+
+#design1 .bg-g {
+  background-color: #baff00;
+}
+
+#design1 .border-g {
+  border: solid #baff00;
+}
+
+/* === BLUE (#00FFF6) === */
+#design1 .txt-b {
+  color: #00fff6;
+}
+
+#design1 .bg-b {
+  background-color: #00fff6;
+}
+
+#design1 .border-b {
+  border: solid #00fff6;
+}
+
+#design1 .panel-container {
+  display: flex;
+  width: auto;
+  height: 100vh;
+  white-space: nowrap;
+}
+
+#design1 .panel {
+  position: relative;
+  width: auto;
+  min-width: max-content;
+  height: 100vh;
+  overflow: visible;
+  display: flex;
+  color: #333;
+  text-align: left;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+
+
+
+
+#design2 html {
+  scroll-behavior: auto !important;
+}
+
+#design2 img {
+  width: 100%;
+}
+
+#design2 .wheel-container {
+  margin: auto;
+  max-width: 1140px;
+}
+#design2 .wheel-container .wheel {
+  width: 100%;
+  position: relative;
+  margin-bottom: 2rem;
+}
+#design2 .wheel-container .wheel .wheel-parts {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#design2 .wheel-container .wheel .wheel-parts img {
+  opacity: 0;
+  position: absolute;
+  max-width: 74%;
+  top: 60.25%;
+  bottom: auto;
+  left: 13%;
+  right: auto;
+  z-index: 1;
+}
+#design2 .wheel-container .wheel .wheel-parts .wheel-in-home {
+  top: 35.5%;
+  left: -21.5%;
+  rotate: 72deg;
+}
+#design2 .wheel-container .wheel .wheel-parts .wheel-property {
+  top: 35.5%;
+  left: 47.5%;
+  rotate: 288deg;
+}
+#design2 .wheel-container .wheel .wheel-parts .wheel-service {
+  top: -4.75%;
+  left: -8.25%;
+  rotate: 144deg;
+}
+#design2 .wheel-container .wheel .wheel-parts .wheel-staffing {
+  top: -4.75%;
+  left: 34.25%;
+  rotate: 216deg;
+}
+#design2 .wheel-container .wheel .wheel-parts .active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+#design2 .wheel-container .wheel-content .text-block {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+#design2 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: sans-serif;
+}
+
+#design2 .d-none {
+  display: none;
+}
+
+#design2 .header,
+.footer {
+  background: #eee;
+  text-align: center;
+}
+
+
+
+

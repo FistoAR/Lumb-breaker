@@ -1,0 +1,141 @@
+// design1 script
+(function(){
+  // paste code from design1 JS here
+
+
+
+  console.clear();
+
+gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
+ScrollSmoother.create({
+  effects: true,
+  smooth: 3
+});
+
+const cont = document.querySelector(".panel-container");
+const panels = gsap.utils.toArray(".panel-container .panel");
+
+const horizontalTween = gsap.to(panels, {
+  x: () => -1 * (cont.scrollWidth - innerWidth),
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".panel-container",
+    pin: true,
+    start: "top top",
+    anticipatePin: 1,
+    scrub: 1,
+    end: () => "+=" + (cont.scrollWidth - innerWidth),
+    invalidateOnRefresh: true
+  }
+});
+
+// Set initial state - all polygons invisible
+gsap.set(".poly-group-arrows polygon", { opacity: 0 });
+
+// Create timeline for the wave effect
+const polyTimeline = gsap.timeline({ repeat: -1 });
+
+// Animate in from left to right
+polyTimeline
+  .to(".poly-group-arrows polygon", {
+    opacity: 1,
+    duration: 0.3,
+    stagger: 0.1,
+    ease: "power2.inOut"
+  })
+  // Animate out from left to right
+  .to(
+    ".poly-group-arrows polygon",
+    {
+      opacity: 0,
+      duration: 0.3,
+      stagger: 0.1,
+      ease: "power2.inOut"
+    },
+    "+=0.5"
+  ); // Wait 0.5 seconds before fading out
+
+document.fonts.ready.then(() => {
+  gsap.set("#quote", { opacity: 1 });
+
+  const split = SplitText.create("#quote", {
+    type: "words"
+  });
+
+  gsap.from(split.words, {
+    scale: "random(0, 0.5)",
+    rotation: "random(-60, 60)",
+    opacity: 0,
+    duration: 1,
+    stagger: {
+      from: "random",
+      amount: 1
+    },
+    scrollTrigger: {
+      trigger: "#quote",
+      start: "top 70%",
+      toggleActions: "play none none reverse",
+      markers: true
+    }
+  });
+});
+
+ScrollTrigger.create({
+  trigger: "#quote",
+  start: "center center",
+  end: "500%",
+  pin: true,
+  markers: true
+});
+
+
+
+})();
+
+// design2 script
+(function(){
+  // paste code from design2 JS here
+
+
+
+
+
+console.clear();
+
+gsap.registerPlugin(ScrollTrigger);
+
+const images = gsap.utils.toArray("img.wheel-item");
+const paneTexts = gsap.utils.toArray(".wheel-content .text-block");
+
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#wheelSection",
+    start: "top top",
+    end: "+=300%",
+    pin: true,
+    scrub: true,
+    markers: true
+  }
+});
+images.forEach((img, i) => {
+  const text = paneTexts[i];
+  tl.to(img, { scale: 1.2, autoAlpha: 1, ease: "none" })
+    .to(text, { autoAlpha: 1, display: "block" }, "<")
+    .to(img, { scale: 1, duration: 0.15, ease: "power1.in" }, "+=0.5")
+    .to(text, { autoAlpha: 0, display: "none" }, "<")
+    .set(img, { autoAlpha: 0 });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+})();
