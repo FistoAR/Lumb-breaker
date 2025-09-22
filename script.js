@@ -69,7 +69,7 @@ document.fonts.ready.then(() => {
       trigger: "#quote",
       start: "top 70%",
       toggleActions: "play none none reverse",
-      markers: true
+      markers: false
     }
   });
 });
@@ -79,7 +79,7 @@ ScrollTrigger.create({
   start: "center center",
   end: "500%",
   pin: true,
-  markers: true
+  markers: false
 });
 
 
@@ -98,8 +98,6 @@ ScrollTrigger.create({
 
 // wheel code 
 
-
-
 gsap.registerPlugin(ScrollTrigger);
 
 const images = gsap.utils.toArray("img.wheel-item");
@@ -109,22 +107,33 @@ const tl = gsap.timeline({
   scrollTrigger: {
     trigger: "#wheelSection",
     start: "top top",
-    end: "+=300%",
+    end: "+=200%",
     pin: true,
     scrub: true,
-    markers: true
+     snap: {
+      snapTo: 1 / images.length, // snap to each image step
+      duration: 0.3,
+      delay: 0,
+      ease: "power1.inOut"
+    },
+    markers: false
+  },
+  onComplete: () => {
+    // ✅ when 2nd animation finishes, trigger 3rd
+    document.getElementById("third-animation").style.display = "block";
+    // startThirdAnimation();
   }
 });
+
 images.forEach((img, i) => {
   const text = paneTexts[i];
-  tl.to(img, { scale: 1.2, autoAlpha: 1, ease: "none" })
-    .to(text, { autoAlpha: 1, display: "block" }, "<")
-    .to(img, { scale: 1, duration: 0.15, ease: "power1.in" }, "+=0.5")
-    .to(text, { autoAlpha: 0, display: "none" }, "<")
-    .set(img, { autoAlpha: 0 });
+
+  tl.set(img, { scale: 1, display: "block", opacity: 1, visibility: "visible" }) // show instantly
+    .set(text, { display: "block", opacity: 1, visibility: "visible" }, "<")     // show text instantly
+    .to({}, { duration: 0.5 }) // pause so it stays visible for scroll
+    .set(text, { display: "none", opacity: 0, visibility: "hidden" })            // instantly hide text
+    .set(img, { display: "none", opacity: 0, visibility: "hidden" });            // instantly hide image
 });
-
-
 
 
 
@@ -250,9 +259,6 @@ images.forEach((img, i) => {
 // }
 
 // gotoSection(0, 1);
-
-
-
 
 
 
