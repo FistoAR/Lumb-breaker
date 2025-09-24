@@ -126,15 +126,17 @@ html {
 .wheel-container .wheel .wheel-parts img {
   opacity: 0;
   position: absolute;
- 
+ /* border: 4px solid red; */
   max-width: 120%;
-  top: 70.25%;
+  top: 80.25%;
   bottom: auto;
   left: 13%;
   right: auto;
   z-index: 1;
+  margin-top: 50px;
   /* border: red 10px solid; */
 }
+
 .wheel-container .wheel .wheel-parts .wheel-in-home {
   top: 35.5%;
   /* left: -21.5%; */
@@ -192,26 +194,28 @@ h6 {
   max-width: 150%;
   top: 80%;
   /* bottom: auto; */
-  left: 5%;
+  left: 40%;
   right: auto;
   z-index: 1;
-
+/* border: 5px solid red; */
 }
   
 
 .wheel-container {
   /* margin: auto; */
   max-width: 80%;
-  margin-left: 50px;
+  margin-left: 1% ;
   font-size: large;
    /* border: rgb(100, 161, 19) 2px solid; */
-   margin-top: 120px;
-}
-/* .content-text{
-  margin-top: 200px;
+   margin-top: 3%;
 
-  
-} */
+}
+.content-text{
+  /* margin-top: 200px; */
+/* border: 5px solid green; */
+  margin-left: 40%;
+  width: 100%;
+}
 
 
 }
@@ -395,3 +399,12 @@ h6 {
                 font-size: 1.5rem;
             }
         }
+
+
+
+
+
+
+
+
+        

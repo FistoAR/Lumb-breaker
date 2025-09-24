@@ -12,13 +12,157 @@
      <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5/dist/full.css">
 
+<!-- -----------------------------preloader-------------------- -->
+
+<style>
+        /* preloading and model */
+        .preloaderBg {
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            perspective: 1000px;
+ 
+        }
+ 
+        .preloader {
+            margin: auto;
+            background: url(./images/rap_logo.webp) no-repeat center;
+            background-size: 175px;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-position: 75px;
+            animation: spin3D 1.5s linear infinite;
+            transform-style: preserve-3d;
+            /* backface-visibility: hidden; */
+        }
+ 
+        @keyframes spin3D {
+            0% {
+                transform: translate(-50%, -50%) rotateY(0deg);
+            }
+ 
+            100% {
+                transform: translate(-50%, -50%) rotateY(360deg);
+            }
+        }
+ 
+        .preloader2 {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #d20807;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            animation: spin 1s ease-in-out infinite;
+            position: absolute;
+            margin: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+ 
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+ 
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+    </style>
+
+
+<style>
+/* Hamburger Animation Styles */
+#hamburgerBtn.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#hamburgerBtn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+#hamburgerBtn.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+#mobileNavMenu.active {
+  transform: translateY(0);
+}
+</style>
+
+
+
+
 </head>
 <body>
-    <!-- partial:index.partial.html -->
-<div id="smooth-wrapper">
-  <div id="smooth-content" style="will-change: transform;">
-    <div class="main-container-tw">
 
+
+
+<!-- Add this navigation code after the opening <body> tag and before the preloader -->
+<nav id="mainNav" class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-md border-b border-[#BAFF00]/30 z-50 transform -translate-y-full transition-transform duration-500 ease-in-out">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <img src="./images/rap_logo.webp" alt="RAP Logo" class="w-10 h-10">
+      <span class="ml-3 text-white font-bold text-xl">LUMP BREAKER</span>
+    </div>
+    
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-8">
+      <a href="#model-section" class="text-white hover:text-[#BAFF00] transition-colors duration-300">What is Lump Breaker?</a>
+      <a href="#wheelSection" class="text-white hover:text-[#BAFF00] transition-colors duration-300">Features</a>
+      <a href="#model-section2" class="text-white hover:text-[#BAFF00] transition-colors duration-300">3D Model</a>
+      <a href="#videoSection" class="text-white hover:text-[#BAFF00] transition-colors duration-300">Video</a>
+      <a href="#FAQ_section" class="text-white hover:text-[#BAFF00] transition-colors duration-300">FAQ</a>
+    </div>
+    
+    <!-- Mobile Hamburger Button -->
+    <button id="hamburgerBtn" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1">
+      <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300"></span>
+      <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300"></span>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobileNavMenu" class="md:hidden bg-black/95 backdrop-blur-md border-t border-[#BAFF00]/30 transform -translate-y-full transition-transform duration-300 ease-in-out">
+    <div class="container mx-auto px-4 py-6 space-y-4">
+      <a href="#model-section" class="block text-white hover:text-[#BAFF00] transition-colors duration-300 py-2 border-b border-gray-800">What is Lump Breaker?</a>
+      <a href="#wheelSection" class="block text-white hover:text-[#BAFF00] transition-colors duration-300 py-2 border-b border-gray-800">Features</a>
+      <a href="#model-section2" class="block text-white hover:text-[#BAFF00] transition-colors duration-300 py-2 border-b border-gray-800">3D Model</a>
+      <a href="#videoSection" class="block text-white hover:text-[#BAFF00] transition-colors duration-300 py-2 border-b border-gray-800">Video</a>
+      <a href="#FAQ_section" class="block text-white hover:text-[#BAFF00] transition-colors duration-300 py-2">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+  <div class="preloaderBg" id="globalPreloader" onload="preloader()">
+        <div class="preloader"></div>
+        <div class="preloader2"></div>
+    </div>
+
+
+
+
+<div id="smooth-wrapper">
+   <img src="./images/rap_logo.webp" alt="logo" class="absolute top-[4%] left-[2%] w-[8%] fixed z-3"/>
+  <div id="smooth-content" style="will-change: transform;">
+    <div class="main-container-tw ">
+       
       <section class="z-2 relative container-fluid mx-auto  pb-32 border-b-5 border-bottom border-b-[#BAFF00]  overflow-hidden">
 
         <div  class=" bg-cover bg-center min-h-screen min-w-s
@@ -132,6 +276,8 @@
       
 <section id="model-section" class="mt-[-90px] relative static-1">
   <img src="./images/bg_1.jpg" alt="background_img" class="  w-[100%] h-[100%] overflow-hidden"/>
+  
+
   <!-- <img src="./images/page-3/img-1.svg" alt="img" class=" top-[25%] left-[3%] w-[20%] h-[auto] absolute "/>
   <img src="./images/page-3/img-2.svg" alt="img" class="  top-[15%] right-[0%] w-[20%] h-[auto] absolute "/> -->
   <img src="./images/page-3/image.svg" alt="img" class="  top-[0%] right-[0%] w-[55%] h-[auto] absolute "/>
@@ -144,9 +290,11 @@ To achieve uniform product transfer from Bag dumping station, Storage bins, hopp
 </section>
 
 <section id="wheelSection" class=" py-5 w-[100%] static-1">
+  
   <div class="wheel-container">
     <img src="./images/page-4/Background-img.svg" alt="background_img" class="w-full absolute top-0 left-0">
-    <div class="row flex">
+    
+    <div class="row flex justify-center align-center gap-[10%] justify-between">
       <div class="col-md-6 w-[100%]">
         <div class="wheel ">
           
@@ -164,70 +312,51 @@ To achieve uniform product transfer from Bag dumping station, Storage bins, hopp
       </div>
       <!--/col-md-6-->
 
-      <div class="col-md-5 offset-md-1 d-flex align-items-center justify-content-center">
-        <!-- Tab panes -->
-        <div class="wheel-content w-[100%]  ">
+       <div class="col-md-5 offset-md-1">
+                    <div class="wheel-content">
+                        <div class="text-block wheel-staffing-content active" id="staffing" role="tabpanel" aria-labelledby="staffing-tab" tabindex="0">
+                            <div class="text-white text-lg mt-[30px] list-decimal filter backdrop-blur content-text">
+                                <h1 class="text-[#3899A8] font-bold text-5xl align-start justify-content-start mb-[10px]">FEATURES</h1>
+                                <div class="border border-gray-400 rounded-xl p-[5%] w-[100%] mr-[100px] space-y-2 backdrop-blur-2xl">
+                                    <li>Robust Construction heavy-duty housing in mild steel or stainless steel (SS304/316). Designed to handle tough, abrasive, or dense materials.</li>
+                                    <li>Chopping knives made of hardened material withstand high torque and aligned to minimize clearance for efficient lump breaking.</li>
+                                    <li>Stationary Comb plates to control particle size and Optional easily removable comp for custom output sizing.</li>
+                                    <li>Sealed housings to prevent dust leakage.</li>
+                                    <li>Customizable inlet/outlet flanges for process integration.</li>
+                                    <li>Variable Speed Drive (VFD)-Adjustable rotor speed to handle different material types and flow rates.</li>
+                                    <li>Low Headroom Design-Compact footprint allows installation in tight spaces or retrofits.</li>
+                                </div>
+                            </div>
+                        </div>
 
-          <div class="text-block wheel-staffing-content " id="staffing" role="tabpanel" aria-labelledby="staffing-tab" tabindex="0">
- 
-            <div class="text-white text-lg  mt-[30px] list-decimal filter backdrop-blur content-text">
-                         <h1 class="text-[#3899A8] font-bold text-5xl align-start justify-content-start mb-[10px]">FEATURES</h1>
-                         <div class="border border-gray-400 rounded-xl p-[5%] w-[100%] mr-[100px] space-y-2 backdrop-blur-2xl">
-              <li>Robust Construction heavy-duty housing in mild steel or stainless steel (SS304/316). Designed to handle tough, abrasive, or dense materials..</li>
-              <li>Chopping knives made of hardened material withstand high torque and aligned to minimize clearance for efficient lump breaking.</li>
-              <li>Stationary Comb plates to control particle size and Optional easily removable comp for custom output sizing.</li>
-              <li>Sealed housings to prevent dust leakage.</li>
-              <li>Customizable inlet/outlet flanges for process integration.</li>
-              <li>Variable Speed Drive (VFD)-Adjustable rotor speed to handle different material types and flow rates.</li>
-              <li>Low Headroom Design-Compact footprint allows installation in tight spaces or retrofits.</li>
-                         </div>
-             
-              
-            
-            </div>
-            
-            <!-- <p>Some content will go here. This will be the main description for this topic. Every topic will have some informative information that will appear under the wheel on mobile devices and on the right of the wheel on bigger screens.</p> -->
-          </div>
-          <div class="text-block wheel-property-content text-white" id="property" role="tabpanel" aria-labelledby="property-tab" tabindex="0">
-            <div class="text-white text-lg  mt-[60px] list-decimal filter backdrop-blur content-text ">
-              <h1 class="text-[#3899A8] font-bold text-5xl align-start justify-content-start mb-[10px]  ml-[-300px]">OPTIONAL FEATURES</h1>
-              <div class="border border-gray-400 rounded-xl p-[5%] w-[600px]  mr-[200px] ml-[-300px] space-y-2 backdrop-blur-2xl pl-[50px]">
-              <li>Food/pharma-grade finish (mirror polished, crevice-free).</li>
-              <li>Cooling jackets for heat-sensitive products,</li>
-              <li>Wear-resistant liners (ceramic, tungsten carbide).</li>
-              <li>Mobile/lab-scale units for testing or small batch production</li>
-              </div>
-              
-            </div>
-         
-            
-              
-            <!-- <p>Some content will go here. This will be the main description for this topic. Every topic will have some informative information that will appear under the wheel on mobile devices and on the right of the wheel on bigger screens.</p> -->
-          </div>
-          <div class="text-block wheel-hr-content text-white" id="hr" role="tabpanel" aria-labelledby="hr-tab" tabindex="0">
-            <div class="text-white text-lg  mt-[30px] list-decimal filter backdrop-blur content-text">
-              <h1 class="text-[#3899A8] font-bold text-5xl align-start justify-content-start mb-[10px]">APPLICATIONS OF LUMP BREAKERS</h1>
-            <div class="border border-gray-400 rounded-xl px-[5%] py-[2%] w-[100%] mr-[50px] space-y-2 backdrop-blur-2xl">
-              <li>Chemical Industry-breaking down hygroscopic or heat-sensitive chemical lumps formed during storage.</li>
-              <li>Food & Beverage crushing lumpy ingredients like sugar, salt, flour, spices, cocoa powder, or milk powder. </li>
-              <li>Pharmaceutical Industry Ensuring smooth flow of active pharmaceutical ingredients (API) and excipients.</li>
-              <li>Mining & Minerals-Reducing size of compacted minerals, lime, or gypsum.</li>
-              <li>Cement & Building Materials-Breaking hardened cement, clinker, or lime prior to conveying or milling.</li>
-              <li>Plastics & Polymers-Handling resin clumps or polymer chunks before extrusion or molding.</li>
-              <li>Fertilizer & Agriculture-Crushing caked fertilizer granules to prevent bridging in silos or hoppers.</li>
-            </div>
-              
-            </div>
-            
-          
-              
-            
-            <!-- <p>Some content will go here. This will be the main description for this topic. Every topic will have some informative information that will appear under the wheel on mobile devices and on the right of the wheel on bigger screens.</p> -->
-          </div>
-         
-        </div>
-        <!--/wheel-content-->
-      </div>
+                        <div class="text-block wheel-property-content text-white  "  id="property Optional-Features" role="tabpanel" aria-labelledby="property-tab" tabindex="0">
+                            <div class="text-white text-lg  list-decimal filter backdrop-blur content-text mx-auto  mr-[20%] ml-[-20%] flex mt-[32.5%]">
+                                <h1 class="text-[#3899A8] font-bold text-5xl align-start justify-content-start mb-[10px]">OPTIONAL FEATURES</h1>
+                                <div class="border border-gray-400 rounded-xl p-[5%] space-y-2 backdrop-blur-2xl">
+                                    <li>Food/pharma-grade finish (mirror polished, crevice-free).</li>
+                                    <li>Cooling jackets for heat-sensitive products,</li>
+                                    <li>Wear-resistant liners (ceramic, tungsten carbide).</li>
+                                    <li>Mobile/lab-scale units for testing or small batch production</li>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-block wheel-hr-content text-white" id="hr" role="tabpanel" aria-labelledby="hr-tab" tabindex="0">
+                            <div class="text-white text-lg mt-[30px] list-decimal filter backdrop-blur content-text">
+                                <h1 class="text-[#3899A8] font-bold text-5xl align-start justify-content-start mb-[10px]">APPLICATIONS OF LUMP BREAKERS</h1>
+                                <div class="border border-gray-400 rounded-xl px-[5%] py-[2%] w-[100%] mr-[50px] space-y-2 backdrop-blur-2xl">
+                                    <li>Chemical Industry-breaking down hygroscopic or heat-sensitive chemical lumps formed during storage.</li>
+                                    <li>Food & Beverage crushing lumpy ingredients like sugar, salt, flour, spices, cocoa powder, or milk powder.</li>
+                                    <li>Pharmaceutical Industry Ensuring smooth flow of active pharmaceutical ingredients (API) and excipients.</li>
+                                    <li>Mining & Minerals-Reducing size of compacted minerals, lime, or gypsum.</li>
+                                    <li>Cement & Building Materials-Breaking hardened cement, clinker, or lime prior to conveying or milling.</li>
+                                    <li>Plastics & Polymers-Handling resin clumps or polymer chunks before extrusion or molding.</li>
+                                    <li>Fertilizer & Agriculture-Crushing caked fertilizer granules to prevent bridging in silos or hoppers.</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
       <!--/col-md-6-->
     </div>
     <!--/row-->
@@ -239,19 +368,33 @@ To achieve uniform product transfer from Bag dumping station, Storage bins, hopp
 
 <!-- -------------------model------------------- -->
 
-<section id="model-section2" style="height: 100vh; display: flex; align-items: center; justify-content: center; background-image: url('./images/bg_1.jpg');" class="w-full  mt-[200px] ">
+<section id="model-section2" style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-image: url('./images/bg_1.jpg');" class="w-full   mt-[200px] ">
     
   <div class="  w-[80%] h-[80%]  items-center">
 
     <div class="">
  <img src="./images/model_images/360_white.svg" alt="360" class="mx-auto "/>
     </div>
+
+    <div class="w-[5%] h-[auto] border border-yellow-600 absolute top-[5%] right-[5%] ">
+      <img src="./images/model_images/QR-code.svg" alt="QR-code" class="w-[100%] "/>
+    </div>
    
-<model-viewer src="./images/14.TE 500 sb-20250917T132013Z-1-001/14.TE 500 sb/14-TE 500 G.glb" ar-modes="webxr scene-viewer quick-look" camera-controls
+<!-- <model-viewer src="./images/14.TE 500 sb-20250917T132013Z-1-001/14.TE 500 sb/14-TE 500 G.glb" ar-modes="webxr scene-viewer quick-look" camera-controls
         tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="-180.3deg 85.68deg 0.2735m"
         field-of-view="30deg" disable-pan disable-tap class="w-[100%] h-[80%] ">
-      </model-viewer>
+      </model-viewer> -->
+
+      <model-viewer src="./images/model_images/Lump Breaker.glb"  camera-controls
+    tone-mapping="neutral" poster="poster.webp" shadow-intensity="1"  min-camera-orbit="auto auto 2.475m" min-field-of-view="22.98deg" class="w-[100%] h-[100%] "
+>
   </div>
+  <div class="w-[30%]  flex row justify-between">
+    <button class="btn w-[40%] p-[1%] text-white border rounded-lg border-white hover:text-black hover:bg-white">Normal View</button>
+    <button class="btn w-[40%] p-[1%] text-white border rounded-lg border-white hover:text-black hover:bg-white">Function View</button>
+  </div>
+
+  
       <!-- <model-viewer alt="Neil " src="./images/14.TE 500 sb-20250917T132013Z-1-001/14.TE 500 sb/14-TE 500 G.glb" ar environment-image="shared-assets/environments/moon_1k.hdr" poster="shared-assets/models/NeilArmstrong.webp" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer> -->
  
 </section>
@@ -427,15 +570,107 @@ ScrollTrigger.create({
   scrub: true,
 });
 </script>
-
-
+<!-- ------preloader------------  -->
+<script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+            document.getElementById("globalPreloader").style.display = 'none';
+        });
+    </script>
 
 <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
+<!-- ✅ Smooth Scroll + Toggle -->
+<script>
+  // Toggle mobile menu
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
 
+  // Smooth scroll for links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute("href"))
+        .scrollIntoView({ behavior: "smooth" });
+      mobileMenu.classList.add("hidden"); // auto-close menu
+    });
+  });
 
+  
+</script>
+
+<script>
+// Navigation functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const mainNav = document.getElementById('mainNav');
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileNavMenu = document.getElementById('mobileNavMenu');
+  let isNavVisible = false;
+
+  // Show/hide navigation based on scroll position
+  function handleNavVisibility() {
+    const scrollY = window.scrollY;
+    const firstSectionHeight = document.querySelector('section').offsetHeight;
+    
+    if (scrollY > firstSectionHeight * 0.8 && !isNavVisible) {
+      mainNav.style.transform = 'translateY(0)';
+      isNavVisible = true;
+    } else if (scrollY <= firstSectionHeight * 0.3 && isNavVisible) {
+      mainNav.style.transform = 'translateY(-100%)';
+      mobileNavMenu.classList.remove('active');
+      hamburgerBtn.classList.remove('active');
+      isNavVisible = false;
+    }
+  }
+
+  // Hamburger menu toggle
+  hamburgerBtn.addEventListener('click', function() {
+    hamburgerBtn.classList.toggle('active');
+    mobileNavMenu.classList.toggle('active');
+  });
+
+  // Smooth scroll for navigation links
+  document.querySelectorAll('#mainNav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // Close mobile menu after clicking
+        mobileNavMenu.classList.remove('active');
+        hamburgerBtn.classList.remove('active');
+      }
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!mainNav.contains(e.target) && mobileNavMenu.classList.contains('active')) {
+      mobileNavMenu.classList.remove('active');
+      hamburgerBtn.classList.remove('active');
+    }
+  });
+
+  // Listen to scroll events
+  window.addEventListener('scroll', handleNavVisibility);
+  
+  // Initial check
+  handleNavVisibility();
+});
+</script>
+<script>
+  window.addEventListener("load", function() {
+    const preloader = document.getElementById("preloader");
+    preloader.style.display = "none"; // hides preloader
+  });
+</script>
 
 </body>
 </html>
