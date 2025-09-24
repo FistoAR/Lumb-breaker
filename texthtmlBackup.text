@@ -130,8 +130,8 @@
         </section> -->
       </section>
       
-<section id="model-section" class="mt-[-90px] relative static-1">
-  <img src="./images/bg_1.jpg" alt="background_img" class="  w-[100%] h-[100%] overflow-hidden"/>
+<section  class="mt-[-90px] relative static-1">
+  <img src="./images/bg_1.jpg" alt="background_img" class="  w-[100%] h-[100%] "/>
   <!-- <img src="./images/page-3/img-1.svg" alt="img" class=" top-[25%] left-[3%] w-[20%] h-[auto] absolute "/>
   <img src="./images/page-3/img-2.svg" alt="img" class="  top-[15%] right-[0%] w-[20%] h-[auto] absolute "/> -->
   <img src="./images/page-3/image.svg" alt="img" class="  top-[0%] right-[0%] w-[55%] h-[auto] absolute "/>
@@ -239,22 +239,15 @@ To achieve uniform product transfer from Bag dumping station, Storage bins, hopp
 
 <!-- -------------------model------------------- -->
 
-<section id="model-section2" style="height: 100vh; display: flex; align-items: center; justify-content: center; background-image: url('./images/bg_1.jpg');" class="w-full  mt-[200px] ">
-    
-  <div class="  w-[80%] h-[80%]  items-center">
-
-    <div class="">
- <img src="./images/model_images/360_white.svg" alt="360" class="mx-auto "/>
-    </div>
-   
-<model-viewer src="./images/14.TE 500 sb-20250917T132013Z-1-001/14.TE 500 sb/14-TE 500 G.glb" ar-modes="webxr scene-viewer quick-look" camera-controls
+<!-- <section id="model-section" style="height: 100vh; display: flex; align-items: center; justify-content: center; ">
+    <model-viewer src="./images/14.TE 500 sb-20250917T132013Z-1-001/" ar-modes="webxr scene-viewer quick-look" camera-controls
         tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" camera-orbit="-180.3deg 85.68deg 0.2735m"
-        field-of-view="30deg" disable-pan disable-tap class="w-[100%] h-[80%] ">
+        field-of-view="30deg" disable-pan disable-tap>
       </model-viewer>
-  </div>
-      <!-- <model-viewer alt="Neil " src="./images/14.TE 500 sb-20250917T132013Z-1-001/14.TE 500 sb/14-TE 500 G.glb" ar environment-image="shared-assets/environments/moon_1k.hdr" poster="shared-assets/models/NeilArmstrong.webp" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer> -->
- 
-</section>
+  <h1>
+    model
+  </h1>
+</section> -->
 
 
 
@@ -262,7 +255,7 @@ To achieve uniform product transfer from Bag dumping station, Storage bins, hopp
 
 
 
-<section id="videoSection" class="relative w-full h-screen overflow-hidden bg-black static-1 panell ">
+<section id="videoSection" class="relative w-full h-screen overflow-hidden bg-black static-1 panell h-screen">
    <img src="./images/bg_1.jpg" alt="background_img" class="  w-[100%] h-[100%] "/>
   <!-- Fullscreen Video -->
   <video id="myVideo" class="absolute top-[10%] left-[10%] bottom-[10%] right-[10%] w-[80%] h-[80%] p-[1%] " autoplay muted playsinline loop>
@@ -430,9 +423,9 @@ ScrollTrigger.create({
 
 
 
-<!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
 
 
 
